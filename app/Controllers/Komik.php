@@ -10,6 +10,7 @@ class Komik extends BaseController
 
     public function __construct()
     {
+        helper('form');
         $this->komikModel = new KomikModel();
     }
 
@@ -32,5 +33,13 @@ class Komik extends BaseController
             'komik' => $this->komikModel->getKomik($slug)
         ];
         return view('komik/detail', $data);
+    }
+
+    public function create()
+    {
+        $data = [
+            'title' => 'Tambah Komik'
+        ];
+        return view('komik/create', $data);
     }
 }
